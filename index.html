@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cuaca</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body data-theme="light">
+  <div class="app">
+    <header>
+      <div class="brand">
+        <h1>Dashboard Cuaca</h1>
+      </div>
+
+      <div class="controls">
+        <div class="searchbox autocomplete">
+          <input id="q" type="search" placeholder="Cari kota..." autocomplete="off" />
+          <div id="suggestions" class="suggestions" style="display:none"></div>
+        </div>
+        <div id="favList" class="favorites"></div>
+        <button id="refreshBtn" class="btn">🔄 Refresh</button>
+        <button id="unitBtn" class="btn secondary">°C</button>
+        <button id="themeBtn" class="btn secondary">🌙 Dark</button>
+      </div>
+    </header>
+
+    <main class="grid">
+      <section class="card current">
+        <div class="top">
+          <div>
+            <div id="loc" class="location">-</div>
+            <div id="timestamp" class="small">-</div>
+          </div>
+          <div id="loadingIndicator" class="loading" style="display:none">
+            <div class="spinner"></div> Memuat...
+          </div>
+        </div>
+
+        <div id="errorMsg" class="error" style="display:none"></div>
+
+        <div class="current-main">
+          <div>
+            <div id="temp" class="temp">--</div>
+            <div id="cond" class="small">--</div>
+          </div>
+          <div id="icon" class="weather-icon">🌤️</div>
+        </div>
+
+        <div class="metrics">
+          <div class="metric"><div class="small">Kelembaban</div> <div id="humidity">--%</div></div>
+          <div class="metric"><div class="small">Kecepatan Angin</div> <div id="wind">--</div></div>
+          <div class="metric"><div class="small">Precipitation</div> <div id="precip">--</div></div>
+        </div>
+
+        <div class="forecast-section">
+          <div class="small">Cuaca 5 Hari Kedepan</div>
+          <div id="forecast" class="forecast"></div>
+        </div>
+      </section>
+
+      <aside>
+        <div class="card">
+          <h3>📍 Kota Favorit</h3>
+          <input id="saveCity" placeholder="Nama kota" />
+          <button id="saveBtn" class="btn">Simpan ke Favorit</button>
+          <button id="clearFav" class="btn secondary">Hapus Semua</button>
+
+          <div id="favoritesContainer" class="favorite-list"></div>
+        </div>
+      </aside>
+    </main>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
